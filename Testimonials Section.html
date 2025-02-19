@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Customer Testimonials and Reviews with animation effects">
+    <meta name="keywords" content="testimonials, reviews, customer feedback, animation">
+    <title>Testimonials</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- External CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 60px 0;
+            background-color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .testimonials-carousel {
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 350px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .testimonial .name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .testimonial .role {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .content {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .testimonial .icon {
+            margin-top: 20px;
+            color: #f39c12;
+        }
+
+        /* Navigation Controls */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+
+        .prev, .next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .testimonials-section h2 {
+                font-size: 2rem;
+            }
+
+            .testimonial {
+                max-width: 100%;
+                margin: 10px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section" id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials-carousel">
+            <!-- Testimonial 1 -->
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Client 1" class="avatar">
+                <div class="name">John Doe</div>
+                <div class="role">CEO, Example Corp</div>
+                <p class="content">"CodeCrafted's services transformed our online presence. Their web design and SEO expertise helped us reach new heights. Highly recommend!"</p>
+                <div class="icon"><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Client 2" class="avatar">
+                <div class="name">Jane Smith</div>
+                <div class="role">Marketing Director, XYZ Ltd</div>
+                <p class="content">"We’ve seen an incredible boost in traffic since we partnered with CodeCrafted. Their attention to detail and creative ideas were exactly what we needed!"</p>
+                <div class="icon"><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Client 3" class="avatar">
+                <div class="name">Robert Brown</div>
+                <div class="role">Founder, WebStartups</div>
+                <p class="content">"From web design to mobile app development, CodeCrafted has been an outstanding partner. Their team is dedicated and results-driven!"</p>
+                <div class="icon"><i class="fas fa-star"></i> 5/5</div>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="carousel-nav">
+            <button class="prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- JavaScript to Control Carousel -->
+    <script>
+        const testimonials = document.querySelectorAll('.testimonial');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1;
+            showTestimonial(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1;
+            showTestimonial(currentIndex);
+        });
+
+        // Initialize the first testimonial
+        showTestimonial(currentIndex);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms and Conditions page with smooth animations and interactive accordion sections">
+    <meta name="keywords" content="terms, conditions, user agreement, privacy policy">
+    <title>Terms and Conditions</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .accordion {
+            margin-top: 30px;
+        }
+
+        .accordion-item {
+            background-color: white;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-header {
+            background-color: #007bff;
+            padding: 15px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            padding: 15px;
+            display: none;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            line-height: 1.6;
+            border-top: 1px solid #ddd;
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .accordion-header {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Terms and Conditions</h1>
+    </header>
+
+    <div class="container">
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>1. Introduction</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Welcome to our website. By accessing or using our website, you agree to comply with these terms and conditions. If you disagree with any part of the terms, please refrain from using our site.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>2. User Obligations</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>As a user of this website, you agree to use the services responsibly, in compliance with all applicable laws and regulations. You are prohibited from engaging in any activity that may harm or disrupt the website's services.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>3. Privacy Policy</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>We value your privacy. Please refer to our Privacy Policy for detailed information about how we collect, use, and protect your data. By using our website, you consent to our privacy practices as outlined in the policy.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>4. Limitation of Liability</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Our liability for any damages arising from the use of the website is limited to the fullest extent permitted by law. We are not responsible for any indirect, incidental, or consequential damages that may result from using our services.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>5. Governing Law</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>These terms and conditions are governed by the laws of the jurisdiction where our company is registered. Any legal disputes will be resolved in accordance with local laws.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle accordion interaction -->
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+
+                // Toggle the accordion content display
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+
+                // Toggle the active class for rotation animation on the icon
+                header.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

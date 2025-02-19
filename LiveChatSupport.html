@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced search functionality with live results and suggestions">
+    <meta name="keywords" content="search, live search, suggestions, dynamic">
+    <title>Advanced Search Functionality</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 30px;
+            border: 2px solid #ddd;
+            outline: none;
+            transition: border 0.3s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        .search-bar:focus {
+            border: 2px solid #007bff;
+        }
+
+        /* Suggestions Box */
+        .suggestions-box {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-height: 250px;
+            overflow-y: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            display: none;
+        }
+
+        .suggestions-box ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .suggestions-box li {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .suggestions-box li:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* No results message */
+        .no-results {
+            padding: 12px 15px;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Animation for suggestions box */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .suggestions-box.show {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .search-container {
+                width: 90%;
+                margin: 30px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Search Container -->
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchBar" placeholder="Search for products, services, or articles...">
+        <div class="suggestions-box" id="suggestionsBox">
+            <!-- Suggestions will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Sample Data (Products, Articles, etc.) -->
+    <script>
+        const sampleData = [
+            "JavaScript for Beginners",
+            "Advanced HTML and CSS Techniques",
+            "How to Learn React in 2025",
+            "Best Practices for Web Development",
+            "The Future of Artificial Intelligence",
+            "Top 10 JavaScript Frameworks",
+            "CSS Grid vs Flexbox: A Comparison",
+            "SEO Optimization for Web Developers",
+            "Introduction to Node.js",
+            "Building Scalable Web Applications",
+            "How to Create a Dynamic Website"
+        ];
+
+        const searchBar = document.getElementById('searchBar');
+        const suggestionsBox = document.getElementById('suggestionsBox');
+
+        // Function to filter and display suggestions
+        function showSuggestions(query) {
+            // Clear previous suggestions
+            suggestionsBox.innerHTML = '';
+            suggestionsBox.classList.remove('show');
+
+            // Filter the data based on the query
+            const filteredData = sampleData.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+
+            if (filteredData.length > 0) {
+                filteredData.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = item;
+                    listItem.addEventListener('click', () => {
+                        searchBar.value = item;
+                        suggestionsBox.classList.remove('show');
+                    });
+                    suggestionsBox.appendChild(listItem);
+                });
+                suggestionsBox.classList.add('show');
+            } else {
+                const noResults = document.createElement('li');
+                noResults.classList.add('no-results');
+                noResults.textContent = 'No results found';
+                suggestionsBox.appendChild(noResults);
+                suggestionsBox.classList.add('show');
+            }
+        }
+
+        // Event listener for the search bar
+        searchBar.addEventListener('input', (event) => {
+            const query = event.target.value;
+            if (query.trim().length > 0) {
+                showSuggestions(query);
+            } else {
+                suggestionsBox.classList.remove('show');
+            }
+        });
+
+        // Close the suggestions box if the user clicks outside
+        window.addEventListener('click', (event) => {
+            if (!searchBar.contains(event.target) && !suggestionsBox.contains(event.target)) {
+                suggestionsBox.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

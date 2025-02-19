@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our premium services/products tailored for your business needs.">
+    <meta name="keywords" content="services, products, web development, digital marketing, SEO, mobile apps">
+    <title>Services / Products</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- External CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 60px 0;
+            background-color: #fff;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .services-section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .services-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .service-card {
+            width: 300px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .service-card button {
+            padding: 12px 30px;
+            background-color: #ffdd57;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-card button:hover {
+            background-color: #f39c12;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-section h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h2>Our Premium Services / Products</h2>
+        <p>We offer a range of top-tier services and products designed to help your business grow and succeed. Explore our offerings below:</p>
+
+        <!-- Services Cards -->
+        <div class="services-cards-container">
+            <!-- Service 1 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://via.placeholder.com/80" alt="Service 1 Icon">
+                <h3>Web Development</h3>
+                <p>Custom websites designed to enhance your online presence with the latest technologies and user-friendly interfaces.</p>
+                <button>Learn More</button>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://via.placeholder.com/80" alt="Service 2 Icon">
+                <h3>SEO Optimization</h3>
+                <p>Boost your search engine rankings with our SEO strategies that attract more organic traffic to your website.</p>
+                <button>Learn More</button>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://via.placeholder.com/80" alt="Service 3 Icon">
+                <h3>Mobile App Development</h3>
+                <p>Develop mobile applications tailored to your business needs, providing seamless experiences for your customers.</p>
+                <button>Learn More</button>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://via.placeholder.com/80" alt="Service 4 Icon">
+                <h3>Digital Marketing</h3>
+                <p>Reach your target audience effectively through strategic online marketing campaigns across multiple platforms.</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS Animation Script (for scroll-based animations) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS for animation
+        AOS.init({
+            duration: 1200, // Animation duration in milliseconds
+            once: true // Animation happens once (scroll triggered)
+        });
+    </script>
+
+</body>
+
+</html>

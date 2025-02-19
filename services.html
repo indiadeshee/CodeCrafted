@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We offer web design, SEO services, and mobile app development to help businesses grow.">
+    <meta name="keywords" content="web design, SEO, mobile apps, digital marketing">
+
+    <title>CodeCrafted - Your Digital Solutions</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&family=Open+Sans:wght@400;600&family=Montserrat:wght@400;700&family=Oswald:wght@400;700&family=Raleway:wght@400;600&family=Quicksand:wght@400;700&family=PT+Sans:wght@400;700&family=Poppins:wght@400;600&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* Advanced Blog Styles */
+        #blog {
+            background-color: #f8f9fa;
+            padding-top: 80px; /* To avoid overlap with fixed navbar */
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Card Image */
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* Card Content */
+        .card-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 300px; /* Fixed height for better alignment */
+        }
+
+        /* Card Footer */
+        .card-footer {
+            background-color: transparent;
+            border-top: 1px solid #e3e3e3;
+            color: #6c757d;
+        }
+
+        /* Read More / Read Less Toggle */
+        .full-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .read-more {
+            color: #ffdd57;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #e8a500;
+        }
+
+        /* Pagination Styling */
+        .pagination .page-item.active .page-link {
+            background-color: #ffdd57;
+            border-color: #ffdd57;
+        }
+
+        .pagination .page-link {
+            color: #495057;
+            border: none;
+        }
+
+        .pagination .page-link:hover {
+            color: #ffdd57;
+            text-decoration: none;
+        }
+
+        /* Grid Layout (Responsive) */
+        @media (min-width: 576px) {
+            .card-columns {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        /* Lazy Loading for Images */
+        .lazy {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .lazy-loaded {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="bg-dark text-white py-4 text-center">
+        <h1>CodeCrafted</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="transition: all 0.3s ease;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home" style="font-size: 1.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">CodeCrafted</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Articles</h2>
+            <div class="card-columns" id="blog-container">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                    <li class="page-item active">
+                        <span class="page-link">1</span>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Quick Links</h3>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#about" class="text-white">About Us</a></li>
+                        <li><a href="#services" class="text-white">Services</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Stay Updated</h3>
+                    <form action="#" class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="https://www.twitter.com" target="_blank" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" class="text-white me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="back-to-top" class="btn btn-primary rounded-circle">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="text-center mt-3">
+            <p>&copy; <span id="year"></span> CodeCrafted. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Lazy Loading of Images
+        const images = document.querySelectorAll('.lazy');
+        const loadImages = () => {
+            images.forEach(image => {
+                if (image.getBoundingClientRect().top < window.innerHeight) {
+                    image.src = image.getAttribute('data-src');
+                    image.classList.add('lazy-loaded');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', loadImages);
+        loadImages(); // Initial load
+
+        // Blog posts
+        const blogContainer = document.getElementById('blog-container');
+        const blogPosts = [
+            {
+                title: 'Article Title 1',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae risus ac nunc tristique tempor ut non velit.',
+                fullText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae risus ac nunc tristique tempor ut non velit. Curabitur vel ligula enim. Nam sed ante ac odio ullamcorper dictum ac ac eros. Integer hendrerit libero vel velit posuere, et egestas orci dictum. Mauris a tortor euismod, facilisis nisl sed, suscipit urna. Suspendisse potenti.',
+                date: 'January 30, 2025',
+                imageUrl: 'https://via.placeholder.com/350x200',
+                link: '#'
+            },
+            {
+                title: 'Article Title 2',
+                description: 'Vestibulum auctor dapibus neque. Nunc dignissim risus id metus.',
+                fullText: 'Vestibulum auctor dapibus neque. Nunc dignissim risus id metus. Fusce nec felis sed velit luctus hendrerit. Cras euismod pharetra nisl, ac fringilla dolor.',
+                date: 'January 25, 2025',
+                imageUrl: 'https://via.placeholder.com/350x200',
+                link: '#'
+            },
+            {
+                title: 'Article Title 3',
+                description: 'Fusce nec felis sed velit luctus hendrerit.',
+                fullText: 'Fusce nec felis sed velit luctus hendrerit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam viverra velit non erat condimentum, eget feugiat ante vestibulum.',
+                date: 'January 20, 2025',
+                imageUrl: 'https://via.placeholder.com/350x200',
+                link: '#'
+            }
+        ];
+
+        blogPosts.forEach(post => {
+            const blogPostHTML = `
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" data-src="${post.imageUrl}" class="card-img-top lazy" alt="${post.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${post.title}</h5>
+                        <p class="card-text">${post.description}</p>
+                        <p class="full-content">${post.fullText}</p>
+                        <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>Published on: ${post.date}</small>
+                    </div>
+                </div>
+            `;
+            blogContainer.innerHTML += blogPostHTML;
+        });
+
+        function toggleReadMore(button) {
+            const fullContent = button.previousElementSibling;
+            if (fullContent.style.display === "none" || fullContent.style.display === "") {
+                fullContent.style.display = "block";
+                fullContent.style.opacity = 1;
+                button.textContent = "Read Less";
+            } else {
+                fullContent.style.display = "none";
+                fullContent.style.opacity = 0;
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

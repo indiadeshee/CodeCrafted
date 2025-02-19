@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Live Chat and Support system to interact with customers and provide instant assistance.">
+    <meta name="keywords" content="chat, live chat, support, customer service">
+    <title>Live Chat - Instant Support</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .chatbox-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .chatbox {
+            position: relative;
+            width: 350px;
+            max-width: 100%;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .chatbox-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .chatbox-content {
+            padding: 15px;
+            overflow-y: auto;
+            flex-grow: 1;
+            max-height: 280px;
+        }
+
+        .chatbox-content .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f1f1f1;
+            max-width: 80%;
+        }
+
+        .chatbox-content .user-message {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+
+        .chatbox-content .support-message {
+            background-color: #e2e2e2;
+            color: #333;
+        }
+
+        .chatbox-footer {
+            display: flex;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .chatbox-footer input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .chatbox-footer button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbox-footer button:hover {
+            background-color: #0056b3;
+        }
+
+        .open-chatbox-btn {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .open-chatbox-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .chatbox {
+                width: 100%;
+                max-width: 100%;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Live Chat Button -->
+    <div class="chatbox-container">
+        <button class="open-chatbox-btn" id="openChatboxBtn">
+            <i class="fas fa-comment-alt"></i>
+        </button>
+
+        <!-- Chatbox -->
+        <div class="chatbox" id="chatbox">
+            <div class="chatbox-header">
+                Live Support Chat
+            </div>
+            <div class="chatbox-content" id="chatboxContent">
+                <!-- Messages will appear here -->
+            </div>
+            <div class="chatbox-footer">
+                <input type="text" id="userMessage" placeholder="Type a message..." />
+                <button id="sendMessageBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Animation Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Toggle chatbox visibility
+        const openChatboxBtn = document.getElementById('openChatboxBtn');
+        const chatbox = document.getElementById('chatbox');
+
+        openChatboxBtn.addEventListener('click', function () {
+            chatbox.style.display = chatbox.style.display === 'none' || chatbox.style.display === '' ? 'flex' : 'none';
+            openChatboxBtn.style.display = 'none';  // Hide chat button when chatbox is open
+        });
+
+        // Send message
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const userMessageInput = document.getElementById('userMessage');
+        const chatboxContent = document.getElementById('chatboxContent');
+
+        sendMessageBtn.addEventListener('click', function () {
+            const userMessage = userMessageInput.value.trim();
+            if (userMessage) {
+                // Display user message
+                const userMessageElement = document.createElement('div');
+                userMessageElement.classList.add('message', 'user-message');
+                userMessageElement.textContent = userMessage;
+                chatboxContent.appendChild(userMessageElement);
+
+                // Simulate bot reply after 1 second
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.classList.add('message', 'support-message');
+                    botMessage.textContent = 'Thank you for reaching out! How can we assist you today?';
+                    chatboxContent.appendChild(botMessage);
+                    chatboxContent.scrollTop = chatboxContent.scrollHeight;  // Auto-scroll to latest message
+                }, 1000);
+
+                // Clear input field
+                userMessageInput.value = '';
+                chatboxContent.scrollTop = chatboxContent.scrollHeight;  // Auto-scroll to latest message
+            }
+        });
+
+        // Close chatbox when clicked outside
+        window.addEventListener('click', function (e) {
+            if (!chatbox.contains(e.target) && !openChatboxBtn.contains(e.target)) {
+                chatbox.style.display = 'none';
+                openChatboxBtn.style.display = 'block';  // Show chat button again
+            }
+        });
+    </script>
+
+</body>
+
+</html>

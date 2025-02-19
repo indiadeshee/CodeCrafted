@@ -1,0 +1,471 @@
+/*!
+ * CodeCrafted Web Design Template
+ * Copyright (c) 2025 [Aapka Naam / Aapka Company Naam]
+ * All rights reserved.
+ */
+
+
+/* Sticky Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: white !important;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #ffcc00 !important;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #ffcc00 !important;
+}
+
+/* Hero Section with Background Image */
+#home {
+    background-image: url('pic.jpg'); /* Change to your image URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 100px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#home h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+}
+
+#home p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+#home .btn-primary {
+    background-color: #ff6a00;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+#home .btn-primary:hover {
+    background-color: #ee0979;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffcc00;
+}
+
+/* Service Cards */
+.card-body i {
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.card-body:hover i {
+    transform: scale(1.1);
+}
+
+.card-body {
+    transition: box-shadow 0.3s ease;
+}
+
+.card-body:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Quick Links Section */
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ffcc00;
+}
+
+/* Contact Form */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #ff6a00;
+}
+
+.btn-primary {
+    background-color: #ff6a00;
+    border: none;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.btn-primary:hover {
+    background-color: #ee0979;
+}
+body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            font-weight: 700;
+        }
+		body {
+  font-family: 'Roboto', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.nav-link:hover {
+    color: #ff6600 !important;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+
+.navbar-nav .nav-item .dropdown-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
+
+.suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+.suggestions-container div {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.suggestions-container div:hover {
+    background-color: #f0f0f0;
+}
+/* Custom Styling */
+        #map {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .contact-form button {
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #007bff;
+        }
+        /* Adjusting the map height on mobile */
+        @media (max-width: 768px) {
+            #map iframe {
+                height: 300px;
+            }
+        }
+		/* Custom Styles */
+        .team-member {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .team-member:hover {
+            transform: translateY(-10px); /* Hover effect */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .team-member .social-icons a {
+            color: #333;
+            font-size: 18px;
+            margin-right: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+        .team-member .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .team-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .team-member .name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .team-member .position {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team-member {
+                margin-bottom: 20px;
+            }
+        }
+		#team {
+    background-image: url('https://via.placeholder.com/1920x1080'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 5rem 0;
+}
+#about {
+    background-color: #f9f9f9;
+    background-image: url('path/to/your-image.jpg'); /* Optional: add a background image */
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+}
+
+#about h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.about-card {
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-10px); /* Adds a nice hover effect */
+}
+
+.about-card h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.about-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+.about-card i {
+    font-size: 4rem;
+}
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar.dark-mode {
+    background-color: #333;
+}
+
+.hero.dark-mode {
+    background-color: #1a1a1a;
+}
+
+footer.dark-mode {
+    background-color: #1a1a1a;
+}
+
+footer.dark-mode .text-white {
+    color: #ffffff;
+}
+
+/* Light Mode Styles (default) */
+body {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.hero {
+    background-color: #f8f9fa;
+}
+
+footer {
+    background-color: #f8f9fa;
+}
+
+footer .text-white {
+    color: #333;
+}
+/* Pricing Section Styles */
+        #pricing {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffdd57;
+        }
+
+        .pricing-card .price small {
+            font-size: 1rem;
+            color: #888;
+        }
+
+        .pricing-card .price span {
+            font-size: 1.1rem;
+            color: #6c757d;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .pricing-card ul li {
+            font-size: 1rem;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .pricing-card ul li i {
+            color: #ffdd57;
+            margin-right: 10px;
+        }
+
+        .pricing-card .btn {
+            margin-top: 20px;
+            background-color: #ffdd57;
+            color: white;
+            font-size: 1.1rem;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pricing-card .btn:hover {
+            background-color: #e8a500;
+        }
+
+        /* Highlight the Popular Plan */
+        .pricing-card.popular {
+            border: 2px solid #ffdd57;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pricing-card {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+        }

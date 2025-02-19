@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy page with smooth animations and interactive accordion sections">
+    <meta name="keywords" content="privacy policy, data protection, user privacy, website policy">
+    <title>Privacy Policy</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .accordion {
+            margin-top: 30px;
+        }
+
+        .accordion-item {
+            background-color: white;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-header {
+            background-color: #007bff;
+            padding: 15px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            padding: 15px;
+            display: none;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            line-height: 1.6;
+            border-top: 1px solid #ddd;
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .accordion-header {
+                font-size: 16px;
+            }
+        }
+
+        /* Background Animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(8px);
+            z-index: -1;
+            animation: fadeIn 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <header>
+        <h1>Privacy Policy</h1>
+    </header>
+
+    <div class="container">
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>1. Introduction</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Welcome to our privacy policy page. We value your privacy and are committed to protecting your personal information. By using our services, you agree to the terms outlined in this policy.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>2. Information Collection</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>We collect personal information when you use our services, including but not limited to your name, email address, and browsing activity. This data helps us improve your user experience and provide relevant content.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>3. Data Usage</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>We use your data to personalize your experience, improve our services, and communicate with you about updates or promotions. We do not sell or rent your data to third parties without your consent.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>4. Cookies and Tracking</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>We use cookies and similar tracking technologies to monitor your activities on our website and improve your experience. You can manage or disable cookies through your browser settings.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>5. Data Security</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>We implement security measures to protect your data from unauthorized access, loss, or misuse. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>6. Your Rights</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>You have the right to access, update, or delete your personal data at any time. If you have any concerns or requests, please contact us through the details provided in the "Contact Us" section.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>7. Changes to this Policy</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>We may update this privacy policy from time to time. We will notify you of any significant changes via email or through our website. Please review this page periodically for updates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle accordion interaction -->
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+
+                // Toggle the accordion content display
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+
+                // Toggle the active class for rotation animation on the icon
+                header.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn more about our team, vision, and mission. We are passionate about helping businesses grow with innovative digital solutions.">
+    <meta name="keywords" content="About Us, Our Team, Mission, Vision, Company">
+    <title>About Us</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate On Scroll) for animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* About Us Section */
+        .about-us-section {
+            padding: 80px 0;
+            background-color: #fff;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .about-us-section h2 {
+            font-size: 2.8rem;
+            color: #333;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .about-us-section p {
+            font-size: 1.2rem;
+            color: #777;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .team-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .team-card {
+            width: 250px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .team-card .role {
+            font-size: 1rem;
+            color: #ffdd57;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .team-card .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .team-card .social-icons a:hover {
+            color: #ffdd57;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-us-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .team-cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-card {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- About Us Section -->
+    <section class="about-us-section" id="about">
+        <h2 data-aos="fade-up" data-aos-duration="1000">About Us</h2>
+        <p data-aos="fade-up" data-aos-duration="1500">
+            We are a passionate team of digital experts dedicated to helping businesses grow by creating innovative
+            digital solutions. Our team is committed to delivering the best in web development, SEO, mobile apps, and
+            digital marketing.
+        </p>
+
+        <!-- Team Cards -->
+        <div class="team-cards-container">
+            <!-- Team Member 1 -->
+            <div class="team-card" data-aos="fade-up" data-aos-duration="2000">
+                <img src="https://via.placeholder.com/150" alt="Team Member 1">
+                <h3>John Doe</h3>
+                <p class="role">CEO & Founder</p>
+                <p>John is the visionary behind our company. With over 10 years of experience in the industry, he leads the
+                    team with a focus on innovation and excellence.</p>
+                <div class="social-icons">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-card" data-aos="fade-up" data-aos-duration="2500">
+                <img src="https://via.placeholder.com/150" alt="Team Member 2">
+                <h3>Jane Smith</h3>
+                <p class="role">Marketing Director</p>
+                <p>Jane is the creative force behind our marketing strategies. She is committed to driving the digital
+                    presence of our clients and ensuring growth.</p>
+                <div class="social-icons">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card" data-aos="fade-up" data-aos-duration="3000">
+                <img src="https://via.placeholder.com/150" alt="Team Member 3">
+                <h3>Mike Lee</h3>
+                <p class="role">Lead Developer</p>
+                <p>Mike is the backbone of our technical team. His expertise in coding and development ensures that we
+                    create top-notch websites and mobile apps for our clients.</p>
+                <div class="social-icons">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS (Animate On Scroll) Script -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS for animations
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            once: true // Animation triggers once
+        });
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+
+</html>
